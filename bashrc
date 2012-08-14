@@ -73,7 +73,7 @@ export EDITOR=vim
 # Screen stuff
 alias screen='TERM=screen screen'
 
-### brianz aliases
+### my aliases
 alias ls='ls -G'
 alias l='ls -lF'
 alias la='ls -alF'
@@ -88,8 +88,20 @@ alias stopmysql='sudo launchctl unload -w /Library/LaunchDaemons/com.mysql.mysql
 alias startmysql='sudo launchctl load -w /Library/LaunchDaemons/com.mysql.mysqld.plist'
 alias startmemcache='sudo launchctl load -w /Library/LaunchDaemons/org.macports.memcached.plist'
 alias stopmemcache='sudo launchctl unload -w /Library/LaunchDaemons/org.macports.memcached.plist'
-alias startrabbit='sudo launchctl load -w /Library/LaunchDaemons/org.macports.rabbitmq-server.plist'
 alias startmongo='sudo mongod --fork --dbpath /usr/local/mongodb/data --logpath /var/log/mongod.log --logappend'
+alias zetta='cd ~/Sites/zetta/ZettaPublicSite.git'
+alias runRoastlogLocalhost='python /Users/ape/dev/roastlog/src/www/roastlog/manage.py runserver --settings=settings.ryan'
+alias runclog='python /Users/ape/dev/cuplog/src/www/cuplog/manage.py runserver 0.0.0.0:8001 --settings=settings.ryan'
+alias rlAllNet='python ~/dev/roastlog/src/www/roastlog/manage.py runserver 0.0.0.0:8000 --settings=settings.ryan'
+alias rlog='cd ~/dev/roastlog'
+alias clog='cd ~/dev/cuplog'
+alias brower='cd ~/Sites/brower.com/brower.com.git/'
+alias imgdim='sips -g pixelHeight -g pixelWidth $1'
+# some useful git aliases
+alias rbi='git rb origin/inventory-dev'
+alias gpom='git push origin master'
+alias rbm='git rebase origin/master'
+alias gf='git fetch -v'
 
 if [ -d /usr/local/Cellar/clojure-contrib/1.2.0 ];
 then
