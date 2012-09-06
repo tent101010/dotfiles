@@ -19,7 +19,7 @@ if [ -f $HOME/.git-completion ]; then
     . $HOME/.git-completion
 fi
 
-#PYTHONBIN=/Library/Frameworks/Python.framework/Versions/2.6/bin
+PYTHONBIN="/System/Library/Frameworks/Python.framework/Versions/2.7/bin"
 
 # Virtualenv wrappers.  Make sure this directory has been
 # created already.
@@ -27,10 +27,10 @@ export WORKON_HOME=$HOME/.virtualenvs
 if [ ! -d $WORKON_HOME ]; then
     mkdir $WORKON_HOME
 fi
-if [ -f $PYTHONBIN/virtualenvwrapper.sh ]; then
-    source $PYTHONBIN/virtualenvwrapper.sh;
-fi
 
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    . /usr/local/bin/virtualenvwrapper.sh
+fi
 # This is required to build certain things on OSX 10.6+
 # export ARCHFLAGS="-arch i386 -arch x86_64"
 
@@ -93,6 +93,7 @@ alias zetta='cd ~/Sites/zetta/ZettaPublicSite.git'
 alias runRoastlogLocalhost='python /Users/ape/dev/roastlog/src/www/roastlog/manage.py runserver --settings=settings.ryan'
 alias runclog='python /Users/ape/dev/cuplog/src/www/cuplog/manage.py runserver 0.0.0.0:8001 --settings=settings.ryan'
 alias rlAllNet='python ~/dev/roastlog/src/www/roastlog/manage.py runserver 0.0.0.0:8000 --settings=settings.ryan'
+alias rls='cd ~/dev/roastlog/src/www/roastlog'
 alias rlog='cd ~/dev/roastlog'
 alias clog='cd ~/dev/cuplog'
 alias brower='cd ~/Sites/brower.com/brower.com.git/'

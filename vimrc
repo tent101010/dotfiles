@@ -10,8 +10,6 @@ set shiftwidth=4
 set smarttab
 set expandtab
 set softtabstop=4
-" set autoindent
-" set smartindent
 
 " Wrap text after a certain number of characters.  Do this for all file types.
 set textwidth=79
@@ -26,14 +24,12 @@ set ruler
 set showmatch
 
 set hlsearch
-let loaded_matchparen = 1
+let loaded_matchparen=1
 set completeopt=longest
-
 
 " Shortcuts
 map ,# :s/^/#/<CR><Esc>:nohlsearch<CR>
 map ,!# :s/^#//<CR><Esc>:nohlsearch<CR>
-map ,dj :setfiletype htmldjango
 
 " vimrc file for following the coding standards specified in PEP 7 & 8.
 "
@@ -58,6 +54,8 @@ au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
 " 
 " Now for html
 au BufRead,BufNewFile *.html set tabstop=2
+" And Django
+au BufNewFile,BufRead *.html setlocal filetype=htmldjango
 
 " And CSS
 au BufRead,BufNewFile *.css set tabstop=2
@@ -148,17 +146,20 @@ au BufWritePre *.html,*.css,*.js,*.less :%s/\s\+$//e
 filetype indent on
 " These two are "dumb" indenters
 " Keep indentation level from previous line: 
-" set autoindent
 " Automatically inserts one extra level of indentation in some cases
-" set smartindent
 
-
-" Folding based on indentation: ``set foldmethod=indent``
+"folding settings
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
 
 " highlight the current line & column - use \c to turn on
 hi CursorLine   cterm=NONE ctermbg=235
 hi CursorColumn cterm=NONE ctermbg=235
 nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+nnoremap _dt :set ft=htmldjango<CR>
+nnoremap _pd :set ft=python.django<CR>
 
 
 " -----------------------------------
