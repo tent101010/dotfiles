@@ -1,5 +1,7 @@
-source ~/.bashrc
-#. $HOME/.bashrc
+source $HOME/.bashrc
+
+# make ls command pretty
+export CLICOLOR=1
 
 export HISTSIZE=2000
 

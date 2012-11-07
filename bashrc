@@ -48,13 +48,13 @@ complete -o default -F _pip_completion pip
 # pip bash completion end
 
 export HISTFILESIZE=3000
-export LSCOLORS=cxfxcxdxbxegedabagacad
+#export LSCOLORS=cxfxcxdxbxegedabagacad
 
 export COPENSTACK_COMPUTE_USERNAME="TODO"
 export COPENSTACK_COMPUTE_API_KEY="TODO"
 
 # Add a few things
-PATH=$PATH:$HOME/bin:/usr/local/bin:$PYTHONBIN:/usr/local/git/bin/
+PATH=$PATH:$HOME/bin:/usr/local/bin:$PYTHONBIN:/usr/local/git/bin
 
 # For macports...this should be the last item to
 # modify the path
@@ -64,7 +64,7 @@ PATH=$PATH:$HOME/bin:/usr/local/bin:$PYTHONBIN:/usr/local/git/bin/
 #JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
 
 # Add the git state into the prompt
-export PS1='\u@\h $(__git_ps1 "(%s)")\$ '
+# export PS1='\u@\h $(__git_ps1 "(%s)")\$ '
 
 export TERM=xterm-color
 export SVN_EDITOR=vim

@@ -10,22 +10,21 @@ set shiftwidth=4
 set smarttab
 set expandtab
 set softtabstop=4
+" set autoindent
+" set smartindent
 
 " Wrap text after a certain number of characters.  Do this for all file types.
 set textwidth=79
 
 hi Comment ctermfg=2
 
-" smart / searching. If there is an upper case char in the search string, the search autmagically becomes case-sensitive. Otherwise searches are always case-insensitive
-set ic
-set scs
-
 set ruler
 set showmatch
 
 set hlsearch
-let loaded_matchparen=1
+let loaded_matchparen = 1
 set completeopt=longest
+
 
 " Shortcuts
 map ,# :s/^/#/<CR><Esc>:nohlsearch<CR>
@@ -54,17 +53,9 @@ au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
 " 
 " Now for html
 au BufRead,BufNewFile *.html set tabstop=2
-" And Django
-au BufNewFile,BufRead *.html setlocal filetype=htmldjango
-
-" And CSS
-au BufRead,BufNewFile *.css set tabstop=2
-" And some fancy colors for lesscss files
-au BufRead,BufNewFile *.less set tabstop=2
-au BufNewFile,BufRead *.less set filetype=less
 
 " Strip trailing whitespace on save
-au BufWritePre *.py,*.pyw,*.c,*.h :%s/\s\+$//e
+au BufWritePre *.py,*.pyw,*.c,*.h,*.sh :%s/\s\+$//e
 
 " What to use for an indent.
 " This will affect Ctrl-T and 'autoindent'.
@@ -73,9 +64,7 @@ au BufWritePre *.py,*.pyw,*.c,*.h :%s/\s\+$//e
 au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
 " HTML
 au BufRead,BufNewFile *.html set shiftwidth=2
-" CSS and LESSCSS
-au BufRead,BufNewFile *.css set shiftwidth=2
-au BufRead,BufNewFile *.less set shiftwidth=2
+
 " This should be redundant since we're already setting tabstop and shifwidth,
 " but leave it in for explicitness.
 au BufRead,BufNewFile *.py,*pyw set softtabstop=4
@@ -98,7 +87,7 @@ highlight BadWhitespace ctermbg=red guibg=red
 " Display tabs at the beginning of a line in Python mode as bad.
 au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 " Make trailing whitespace be flagged as bad.
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h,*.sh match BadWhitespace /\s\+$/
 
 " Turn off settings in 'formatoptions' relating to comment formatting.
 " - c : do not automatically insert the comment leader when wrapping based on
@@ -146,20 +135,17 @@ au BufWritePre *.html,*.css,*.js,*.less :%s/\s\+$//e
 filetype indent on
 " These two are "dumb" indenters
 " Keep indentation level from previous line: 
+" set autoindent
 " Automatically inserts one extra level of indentation in some cases
+" set smartindent
 
-"folding settings
-set foldmethod=indent   "fold based on indent
-set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
-set foldlevel=1         "this is just what i use
+
+" Folding based on indentation: ``set foldmethod=indent``
 
 " highlight the current line & column - use \c to turn on
 hi CursorLine   cterm=NONE ctermbg=235
 hi CursorColumn cterm=NONE ctermbg=235
 nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
-nnoremap _dt :set ft=htmldjango<CR>
-nnoremap _pd :set ft=python.django<CR>
 
 
 " -----------------------------------
